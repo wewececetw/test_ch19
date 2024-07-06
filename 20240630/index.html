@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
+</head>
+
+<body>
+  <section id="header">
+    <div class="container">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">訪客留言</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">訪客訂房</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">訪客訂餐</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">交通資訊</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">網站管理</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="sub_menu">
+    <ul class="nav justify-content-center bg-secondary">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">留言管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">訂房管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">訂餐管理</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="login" class="py-5">
+    <div class="container  border border-secondary p-4">
+      <h1 class="text-center mb-3">網站管理-登入</h1>
+      <div class="col-5 mx-auto">
+        <div class="form-group row">
+          <label for="acc" class="col-3 col-form-label">帳號</label>
+          <div class="col-9 mb-2">
+            <input type="text" class="form-control" id="acc">
+          </div>
+          <label for="acc" class="col-3 col-form-label">密碼</label>
+          <div class="col-9 mb-2">
+            <input type="pw" class="form-control" id="pw">
+          </div>
+          <label for="acc" class="col-3 col-form-label">圖片驗證</label>
+          <div class="col-9 mb-2">
+            <input type="pw" class="form-control" id="img_pw">
+          </div>
+          <div class="col-2 col-form-label"></div>
+          <div class="col-10 text-right">
+            <span class="mx-2">1234</span>
+            <button class="btn btn-secondary">驗證碼重新產生</button>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn btn-secondary mx-2">送出</button>
+          <button class="btn btn-secondary">重設</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="message_list">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <h2>訪客留言列表</h2>
+        </div>
+        <div class="col-4 text-right">
+          <button class="btn btn-primary">新增留言</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="message" class="py-5">
+    <div class="container">
+      <table class="table table-bordered">
+        <!-- 修改 -->
+        <tr>
+          <td>訪客A</td>
+          <td>顯然見到價值按鈕本網站項目，日本各項正是配套整合，只好看起。</td>
+          <td rowspan="3" class="align-middle text-center">
+            <span class="mb-3">留言序號：</span>
+            <input type="text" class="form-control mb-3">
+            <button class="btn btn-primary">編輯</button>
+            <button class="btn btn-danger">刪除</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span>發表於:2028/05/11 00:00:00</span>
+            <span>修改於:2028/05/11 00:00:00</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span>E-mail:aaa@bbb.com</span>
+            <span>電話:0912-123456</span>
+          </td>
+        </tr>
+        <!-- 刪除 -->
+        <tr>
+          <td>訪客A</td>
+          <td>顯然見到價值按鈕本網站項目，日本各項正是配套整合，只好看起。</td>
+          <td rowspan="3" class="align-middle text-center">
+            <span>已刪除</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span>發表於:2028/05/11 00:00:00</span>
+            <span>刪除於:2028/05/11 00:00:00</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="login" class="py-5">
+    <div class="container  border border-secondary p-4">
+      <h1 class="text-center mb-3">訪客留言-新增</h1>
+      <div class="col-5 mx-auto">
+        <div class="form-group row">
+          <label for="username" class="col-3 col-form-label">姓名</label>
+          <div class="col-9 mb-2">
+            <input type="text" class="form-control" id="username">
+          </div>
+          <label for="email" class="col-3 col-form-label">E-mail</label>
+          <div class="col-9 mb-2">
+            <input type="email" class="form-control" id="email">
+          </div>
+          <label for="tel" class="col-3 col-form-label">電話</label>
+          <div class="col-9 mb-2">
+            <input type="tel" class="form-control" id="tel">
+          </div>
+          <label for="content" class="col-3 col-form-label">內容</label>
+          <div class="col-9 mb-2">
+            <textarea class="form-control" id="content" rows="4"></textarea>
+          </div>
+          <label for="msg-num" class="col-3 col-form-label">留言序號</label>
+          <div class="col-9 mb-2">
+            <input type="text" class="form-control" id="msg-num">
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn btn-secondary mx-2">送出</button>
+          <button class="btn btn-secondary">重設</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="picker"></div>
+  <script src="./jquery.js"></script>
+  <!-- <script src=https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js></script> -->
+  <script src="./bootstrap.js"></script>
+</body>
+
+</html>

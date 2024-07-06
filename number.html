@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+
+</head>
+
+<body>
+    <div id="table" class="row w-25">
+        <div class="table-items col-4">1</div>
+        <div class="table-items col-4">2</div>
+        <div class="table-items col-4">3</div>
+        <div class="table-items col-4">4</div>
+        <div class="table-items col-4">5</div>
+        <div class="table-items col-4">6</div>
+        <div class="table-items col-4">7</div>
+        <div class="table-items col-4">8</div>
+        <div class="table-items col-4">9</div>
+    </div>
+    <input type="button" value="檢查" id="check">
+    <script src="./jquery/jquery.js"></script>
+    <script src="./jquery/jquery-ui.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script>
+        for (let i = 1; i <= 5; i++) {
+            const rand1 = Math.round(Math.random() * 8)
+            const rand2 = Math.round(Math.random() * 8)
+            const copy1 = $("#table div").eq(rand1).clone()
+            const copy2 = $("#table div").eq(rand2).clone()
+            $("#table div").eq(rand1).replaceWith(copy2)
+            $("#table div").eq(rand2).replaceWith(copy1)
+        }
+
+        $("#table").sortable();
+
+        $('#check').click(function () {
+            for (let i = 1; i <= 9; i++) {
+                console.log($("#table div").eq(i - 1).text())
+                if ($("#table div").eq(i - 1).text() != i) {
+                    alert('X')
+                    return
+                }
+            }
+            alert('OK')
+        })
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>
