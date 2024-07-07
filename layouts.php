@@ -11,28 +11,30 @@
 
 <body>
     <section id="header">
-        <div class="container">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a href="" class="nav-link <?=$_GET['g'] === "home" ? "active": ""?>">首頁</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- brand並排 -->
+        <a href="#" class="navber-brand text-white">快樂旅遊網</a>
+        <!-- toggler導覽 -->
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#pmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="pmenu">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="" class="nav-link">訪客留言</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link <?=$_GET['g'] === "message" ? "active": ""?>">訪客留言</a>
+                    <a href="" class="nav-link">訪客訂房</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link <?=$_GET['g'] === "room" ? "active": ""?>">訪客訂房</a>
+                    <a href="" class="nav-link">訪客訂餐</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link <?=$_GET['g'] === "order" ? "active": ""?>">訪客訂餐</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link <?=$_GET['g'] === "traffic" ? "active": ""?>">交通資訊</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link <?=$_GET['g'] === "admin" ? "active": ""?>">網站管理</a>
+                    <a href="" class="nav-link">網站管理</a>
                 </li>
             </ul>
         </div>
+    </nav>
     </section>
 
     <main>
