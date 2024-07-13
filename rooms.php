@@ -28,6 +28,7 @@
           <div id="date"></div>
         </div>
       </div>
+      <fieldset disabled>
       <div class="form-group row">
         <!-- 訂房間數 -->
         <label for="room" class="col-3 col-form-label">訂房間數</label>
@@ -72,6 +73,7 @@
           <button class="btn btn-danger">取消</button>
         </div>
       </div>
+      </fieldset>
     </div>
   </section>
   <script src="./jquery/jquery.js"></script>

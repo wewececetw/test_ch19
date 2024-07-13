@@ -6,8 +6,5 @@
         <li class="nav-item">
             <a href="" class="nav-link text-white">訂房管理</a>
         </li>
-        <li class="nav-item">
-            <a href="" class="nav-link text-white">訂餐管理</a>
-        </li>
     </ul>
 </section>
