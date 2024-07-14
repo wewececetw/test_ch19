@@ -13,7 +13,7 @@
 
 <section id="rooms" class="py-5">
   <div class="container-fluid">
-    <table class="table">
+    <table id="rooms_table" class="table">
       <tr>
         <td>訂房編號</td>
         <td>入住第一晚的日期</td>
@@ -29,19 +29,37 @@
         <td>編輯</td>
         <td>刪除</td>
       </tr>
-      <tr data-table="0">
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td><button type="button" data-toggle="modal" data-target="#roomsModal" class="btn btn-success">編輯</button>
+      <tr>
+        <td class="orderNum">01</td>
+        <td class="ckinDate">2024-08-04</td>
+        <td class="ckoutDate">2024-09-05</td>
+        <td class="roomsNum">04</td>
+        <td class="roomsInfo">05</td>
+        <td class="name">06</td>
+        <td class="tel">0766666666</td>
+        <td class="email">aaa@gmail.com</td>
+        <td class="commen">09</td>
+        <td class="total">10</td>
+        <td class="orderMoney">11</td>
+        <td><button type="button" data-toggle="modal" data-target="#roomsModal"
+            class="btn btn-success rooms-edit-btn">編輯</button>
+        </td>
+        <td><button type="button" class="btn btn-danger">刪除</button></td>
+      </tr>
+      <tr>
+        <td class="orderNum">02</td>
+        <td class="ckinDate">2024-08-05</td>
+        <td class="ckoutDate">2024-09-06</td>
+        <td class="roomsNum">04</td>
+        <td class="roomsInfo">05</td>
+        <td class="name">06</td>
+        <td class="tel">089999999</td>
+        <td class="email">bbb@gmail.com</td>
+        <td class="commen">09</td>
+        <td class="total">10</td>
+        <td class="orderMoney">11</td>
+        <td><button type="button" data-toggle="modal" data-target="#roomsModal"
+            class="btn btn-success rooms-edit-btn">編輯</button>
         </td>
         <td><button type="button" class="btn btn-danger">刪除</button></td>
       </tr>
@@ -59,26 +77,25 @@
           <div class="container-fluid">
             <div class="form-group row">
               <label for="orderNum" class="col-3 col-form-label">訂房編號</label>
-              <div class="col-6">
-                <input type="text" class="form-control" name="orderNum" id="orderNum">
+              <div class="col-3">
+                <input type="text" class="form-control" name="orderNum" id="orderNum" readonly>
               </div>
-              <div class="col-3"></div>
+              <label for="name" class="col-3 col-form-label">姓名</label>
+              <div class="col-3">
+                <input type="text" class="form-control" name="name" id="name">
+              </div>
             </div>
             <div class="form-group row">
               <label for="ckinDate" class="col-3 col-form-label">入住第一晚日期</label>
-              <div class="col-6">
+              <div class="col-3">
                 <input type="date" class="form-control" name="ckinDate" id="ckinDate">
               </div>
-              <div class="col-3"></div>
-            </div>
-            <div class="form-group row">
               <label for="ckoutDate" class="col-3 col-form-label">入住最後一晚日期</label>
-              <div class="col-6">
+              <div class="col-3">
                 <input type="date" class="form-control" name="ckoutDate" id="ckoutDate">
               </div>
               <div class="col-3"></div>
             </div>
-
             <div class="form-group row">
               <label for="roomsNum" class="col-3 col-form-label">房間數量</label>
               <div class="col-3">
@@ -90,23 +107,13 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="name" class="col-3 col-form-label">姓名</label>
-              <div class="col-3">
-                <input type="text" class="form-control" name="name" id="name">
-              </div>
-              <label for="tel" class="col-3 col-form-label">電話</label>
-              <div class="col-3">
-                <input type="tel" class="form-control" name="tel" id="tel">
-              </div>
-            </div>
-            <div class="form-group row">
               <label for="email" class="label col-3 col-form-label">E-mail</label>
               <div class="col-3">
                 <input type="email" class="form-control" name="email" id="email">
               </div>
-              <label for="commen" class="label col-3 col-form-label">備註</label>
+              <label for="tel" class="col-3 col-form-label">電話</label>
               <div class="col-3">
-                <textarea class="form-control" name="commen" id="commen" rows="4"></textarea>
+                <input type="tel" class="form-control" name="tel" id="tel">
               </div>
             </div>
             <div class="form-group row">
@@ -117,6 +124,12 @@
               <label for="orderMoney" class="col-3 col-form-label">需付訂金</label>
               <div class="col-3">
                 <input type="text" class="form-control" name="orderMoney" id="orderMoney">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="commen" class="label col-3 col-form-label">備註</label>
+              <div class="col-12">
+                <textarea class="form-control" name="commen" id="commen" rows="4"></textarea>
               </div>
             </div>
             <div class="form-group row">
@@ -136,3 +149,16 @@
     </div>
   </div>
 </section>
+<script>
+  $('.rooms-edit-btn').on('click', function () {
+    let td = $(this).closest('tr').children();
+    td.each(function () {
+      const cls = $(this).attr('class')
+      $('#roomsModal').find('#' + cls).val($(this).text())
+    })
+  })
+  $('#roomReset').on('click', function () {
+    $('#roomsModal input').val('');
+    $('#roomsModal textarea').val('');
+  })
+</script>

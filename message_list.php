@@ -6,7 +6,7 @@
                 <h2>訪客留言表</h2>
             </div>
             <div class="col-4 text-right">
-                <button class="btn btn-primary">新增留言</button>
+                <a href="?g=message_insert" class="btn btn-primary">新增留言</a>
             </div>
         </div>
     </div>

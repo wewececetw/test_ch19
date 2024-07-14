@@ -262,18 +262,35 @@
           <td>刪除</td>
         </tr>
         <tr>
-          <td>01</td>
-          <td>2024/08/04</td>
-          <td>2024/09/05</td>
-          <td>04</td>
-          <td>05</td>
-          <td>06</td>
-          <td>0766666666</td>
-          <td>aaa@gmail.com</td>
-          <td>09</td>
-          <td>10</td>
-          <td>11</td>
-          <td><button data-table="0" type="button" data-toggle="modal" data-target="#roomsModal"
+          <td class="orderNum">01</td>
+          <td class="ckinDate">2024-08-04</td>
+          <td class="ckoutDate">2024-09-05</td>
+          <td class="roomsNum">04</td>
+          <td class="roomsInfo">05</td>
+          <td class="name">06</td>
+          <td class="tel">0766666666</td>
+          <td class="email">aaa@gmail.com</td>
+          <td class="commen">09</td>
+          <td class="total">10</td>
+          <td class="orderMoney">11</td>
+          <td><button type="button" data-toggle="modal" data-target="#roomsModal"
+              class="btn btn-success rooms-edit-btn">編輯</button>
+          </td>
+          <td><button type="button" class="btn btn-danger">刪除</button></td>
+        </tr>
+        <tr>
+          <td class="orderNum">02</td>
+          <td class="ckinDate">2024-08-05</td>
+          <td class="ckoutDate">2024-09-06</td>
+          <td class="roomsNum">04</td>
+          <td class="roomsInfo">05</td>
+          <td class="name">06</td>
+          <td class="tel">089999999</td>
+          <td class="email">bbb@gmail.com</td>
+          <td class="commen">09</td>
+          <td class="total">10</td>
+          <td class="orderMoney">11</td>
+          <td><button type="button" data-toggle="modal" data-target="#roomsModal"
               class="btn btn-success rooms-edit-btn">編輯</button>
           </td>
           <td><button type="button" class="btn btn-danger">刪除</button></td>
@@ -292,26 +309,25 @@
             <div class="container-fluid">
               <div class="form-group row">
                 <label for="orderNum" class="col-3 col-form-label">訂房編號</label>
-                <div class="col-6">
-                  <input type="text" class="form-control" name="orderNum" id="orderNum">
+                <div class="col-3">
+                  <input type="text" class="form-control" name="orderNum" id="orderNum" readonly>
                 </div>
-                <div class="col-3"></div>
+                <label for="name" class="col-3 col-form-label">姓名</label>
+                <div class="col-3">
+                  <input type="text" class="form-control" name="name" id="name">
+                </div>
               </div>
               <div class="form-group row">
                 <label for="ckinDate" class="col-3 col-form-label">入住第一晚日期</label>
-                <div class="col-6">
+                <div class="col-3">
                   <input type="date" class="form-control" name="ckinDate" id="ckinDate">
                 </div>
-                <div class="col-3"></div>
-              </div>
-              <div class="form-group row">
                 <label for="ckoutDate" class="col-3 col-form-label">入住最後一晚日期</label>
-                <div class="col-6">
+                <div class="col-3">
                   <input type="date" class="form-control" name="ckoutDate" id="ckoutDate">
                 </div>
                 <div class="col-3"></div>
               </div>
-
               <div class="form-group row">
                 <label for="roomsNum" class="col-3 col-form-label">房間數量</label>
                 <div class="col-3">
@@ -323,23 +339,13 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="name" class="col-3 col-form-label">姓名</label>
-                <div class="col-3">
-                  <input type="text" class="form-control" name="name" id="name">
-                </div>
-                <label for="tel" class="col-3 col-form-label">電話</label>
-                <div class="col-3">
-                  <input type="tel" class="form-control" name="tel" id="tel">
-                </div>
-              </div>
-              <div class="form-group row">
                 <label for="email" class="label col-3 col-form-label">E-mail</label>
                 <div class="col-3">
                   <input type="email" class="form-control" name="email" id="email">
                 </div>
-                <label for="commen" class="label col-3 col-form-label">備註</label>
+                <label for="tel" class="col-3 col-form-label">電話</label>
                 <div class="col-3">
-                  <textarea class="form-control" name="commen" id="commen" rows="4"></textarea>
+                  <input type="tel" class="form-control" name="tel" id="tel">
                 </div>
               </div>
               <div class="form-group row">
@@ -350,6 +356,12 @@
                 <label for="orderMoney" class="col-3 col-form-label">需付訂金</label>
                 <div class="col-3">
                   <input type="text" class="form-control" name="orderMoney" id="orderMoney">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="commen" class="label col-3 col-form-label">備註</label>
+                <div class="col-12">
+                  <textarea class="form-control" name="commen" id="commen" rows="4"></textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -378,67 +390,177 @@
           <div id="date"></div>
         </div>
       </div>
-      <fieldset disabled>
-        <div class="form-group row">
-          <!-- 訂房間數 -->
-          <label for="room" class="col-3 col-form-label">訂房間數</label>
-          <div class="col-3 mb-2">
-            <select name="room" class="custom-select" id="room">
-              <option value="1">1間</option>
-              <option value="2">2間</option>
-              <option value="3">3間</option>
-            </select>
-          </div>
-          <div class="col-6"></div>
-          <!-- 入住天數 -->
-          <label for="ck_day" class="col-3 col-form-label">入住天數</label>
-          <div class="col-3 mb-2">
-            <input type="text" name="" class="form-control" id="ck_day" value="1天" readonly>
-          </div>
-          <div class="col-6"></div>
-          <!-- 入住 -->
-          <label for="ck_date" class="col-3 col-form-label">入住日期</label>
-          <div class="col-4 mb-2">
-            <input type="date" name="" class="form-control" id="ck_date" value="" readonly>
-          </div>
-          <div class="col-auto align-self-center">
-            到
-          </div>
-          <div class="col-4 mb-2">
-            <input type="date" name="" class="form-control" id="ckout_date" value="" readonly>
-          </div>
-          <!-- 房號  -->
-          <label for="room_num" class="col-3 col-form-label">房號</label>
-          <div class="col-3 mb-2">
-            <input type="text" name="" class="form-control" id="room_num" value="" readonly>
-          </div>
-          <div class="col-auto">
-            <button type="button" class="btn btn-secondary">自動產生房號</button>
-          </div>
-          <div class="col mb-2">
-            <button type="button" class="btn btn-primary">選擇房號</button>
-          </div>
-          <div class="col-12 text-center">
-            <button class="btn btn-success mr-5">確認訂房</button>
-            <button class="btn btn-danger">取消</button>
-          </div>
+      <div class="form-group row">
+        <!-- 訂房間數 -->
+        <label for="room" class="col-3 col-form-label">訂房間數</label>
+        <div class="col-3 mb-2">
+          <select name="room" class="custom-select" id="room" disabled>
+            <option value="1">1間</option>
+            <option value="2">2間</option>
+            <option value="3">3間</option>
+          </select>
         </div>
+        <div class="col-6"></div>
+        <!-- 入住天數 -->
+        <label for="ck_day" class="col-3 col-form-label">入住天數</label>
+        <div class="col-3 mb-2">
+          <input type="text" name="" class="form-control" id="ck_day" value="1天" readonly>
+        </div>
+        <div class="col-6"></div>
+        <!-- 入住 -->
+        <label for="ck_date" class="col-3 col-form-label">入住日期</label>
+        <div class="col-4 mb-2">
+          <input type="date" name="" class="form-control" id="ck_date" value="" readonly>
+        </div>
+        <div class="col-auto align-self-center">
+          到
+        </div>
+        <div class="col-4 mb-2">
+          <input type="date" name="" class="form-control" id="ckout_date" value="" readonly>
+        </div>
+        <!-- 房號  -->
+        <label for="room_num" class="col-3 col-form-label">房號</label>
+        <div class="col-3 mb-2">
+          <input type="text" name="" class="form-control" id="room_num" value="" readonly>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-secondary">自動產生房號</button>
+        </div>
+        <div class="col mb-2">
+          <a href="#room_sel" class="btn btn-primary text-white">選擇房號</a>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn btn-success mr-5">確認訂房</button>
+          <button class="btn btn-danger">取消</button>
+        </div>
+      </div>
       </fieldset>
     </div>
   </section>
   <div id="picker"></div>
+
+  <section id="room_sel">
+    <div class="container">
+      <h2 class="text-center">訪客訂房－選擇房間</h2>
+      <h4 class="text-center">2024/04/05星期八</h4>
+      <div class="row nav nav-pills">
+        <label class="col-3 nav-link" for="room_sel_1">Room 1</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_1">
+        <label class="col-3 nav-link disabled bg-danger text-white" for="room_sel_2">Room 2</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_2">
+        <label class="col-3 nav-link" for="room_sel_3">Room 3</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_3">
+        <label class="col-3 nav-link" for="room_sel_4">Room 4</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_4">
+        <label class="col-3 nav-link" for="room_sel_5">Room 5</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_5">
+        <label class="col-3 nav-link" for="room_sel_6">Room 6</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_6">
+        <label class="col-3 nav-link" for="room_sel_7">Room 7</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_7">
+        <label class="col-3 nav-link" for="room_sel_8">Room 8</label>
+        <input type="checkbox" name="room_sel" class="d-none" id="room_sel_8">
+        <div class="col-12 text-center">
+          <button class="btn btn-success" id="btn-room-sel">確定選取</button>
+          <button class="btn btn-danger">取消選取</button>
+          <button class="btn btn-info">放棄離開</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="rooms">
+    <div class="container">
+      <h2 class="text-center">訪客訂房－已選擇的訂房資訊再確認</h2>
+      <div class="form-group row">
+        <!-- 訂房間數 -->
+        <label for="room" class="col-3 col-form-label">訂房間數</label>
+        <div class="col-3 mb-2">
+          <input type="text" class="form-control" name="room" id="room">
+        </div>
+        <div class="col-6"></div>
+      </div>
+      <div class="form-group row">
+        <!-- 房號 -->
+        <label for="roomsNum" class="col-3 col-form-label">房號</label>
+        <div class="col-3 mb-2">
+          <input type="text" class="form-control" name="roomsNum" id="roomsNum">
+        </div>
+        <div class="col-6"></div>
+      </div>
+      <div class="form-group row">
+        <!-- 入住天數 -->
+        <label for="ck_day" class="col-3 col-form-label">入住天數</label>
+        <div class="col-3 mb-2">
+          <input type="text" name="" class="form-control" id="ck_day" value="1天">
+        </div>
+        <div class="col-6"></div>
+      </div>
+      <div class="form-group row">
+        <!-- 入住 -->
+        <label for="ck_date" class="col-3 col-form-label">入住日期</label>
+        <div class="col-4 mb-2">
+          <input type="date" name="" class="form-control" id="ck_date" value="">
+        </div>
+        <div class="col-auto align-self-center">
+          到
+        </div>
+        <div class="col-4 mb-2">
+          <input type="date" name="" class="form-control" id="ckout_date" value="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <!-- 總金額  -->
+        <label for="total" class="col-3 col-form-label">總金額</label>
+        <div class="col-3 mb-2">
+          <input type="text" name="" class="form-control" id="total" value="">
+        </div>
+        <div class="col-6"></div>
+      </div>
+      <div class="form-group row">
+        <!-- 需付訂金  -->
+        <label for="orderMon" class="col-3 col-form-label">需付訂金</label>
+        <div class="col-3 mb-2">
+          <input type="text" name="" class="form-control" id="orderMon" value="">
+        </div>
+        <div class="col-6"></div>
+      </div>
+
+      <div class="col-12 text-center">
+        <button class="btn btn-success mr-5">確認訂房</button>
+        <button class="btn btn-danger">取消</button>
+      </div>
+    </div>
+    </fieldset>
+    </div>
+  </section>
+
+
   <script src="./jquery/jquery.js"></script>
   <!-- <script src=https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js></script> -->
   <script src="./js/bootstrap.js"></script>
   <script>
     $('.rooms-edit-btn').on('click', function () {
-      let table = $(this).attr('data-table');
-
-      $('#orderNum').val($('#rooms_table tr:eq(${table}) td:nth-child(0)').html())
+      let td = $(this).closest('tr').children();
+      td.each(function () {
+        const cls = $(this).attr('class')
+        $('#roomsModal').find('#' + cls).val($(this).text())
+      })
     })
     $('#roomReset').on('click', function () {
       $('#roomsModal input').val('');
       $('#roomsModal textarea').val('');
+    })
+
+    const rooms = 3
+    $('input[name="room_sel"]').on('input', function () {
+      if ($(this).siblings(':checked').length >= rooms) {
+        this.checked = false
+      } else {
+        if (this.checked) $(`label[for="${$(this).attr('id')}"]`).addClass('active')
+        else $(`label[for="${$(this).attr('id')}"]`).removeClass('active')
+      }
     })
   </script>
 </body>
