@@ -16,6 +16,7 @@
             <!-- brand並排 -->
             <a href="/" class="navber-brand text-white">快樂旅遊網</a>
             <!-- toggler導覽 -->
+            <!-- collapse摺疊 -->
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#pmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
